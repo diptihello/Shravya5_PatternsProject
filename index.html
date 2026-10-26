@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pattern Master — Logical Reasoning Tutor</title>
+  <meta name="description" content="Master logical reasoning with interactive pattern puzzles. Practice number series, shape sequences, and alphabet patterns with instant explanations." />
+  <meta name="keywords" content="logical reasoning, pattern recognition, number series, shape sequence, alphabet pattern, brain training" />
+  <meta name="author" content="Pattern Master" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pattern Master — Logical Reasoning Tutor" />
+  <meta property="og:description" content="Interactive pattern puzzles for students. Number series, shapes, and alphabets with explanations." />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────────────────────────────── -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="#" class="nav-logo" onclick="navigate('home'); return false;">
+      <span class="logo-icon">🧠</span>
+      <span>Pattern Master</span>
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#" data-page="home"      onclick="navigate('home');      return false;">Home</a></li>
+      <li><a href="#" data-page="numbers"   onclick="navigate('numbers');   return false;">Numbers</a></li>
+      <li><a href="#" data-page="shapes"    onclick="navigate('shapes');    return false;">Shapes</a></li>
+      <li><a href="#" data-page="alphabets" onclick="navigate('alphabets'); return false;">Alphabets</a></li>
+    </ul>
+
+    <div class="nav-difficulty" role="group" aria-label="Difficulty filter">
+      <button class="diff-btn" id="diff-all"    data-level="all"    onclick="setDifficulty('all')">All</button>
+      <button class="diff-btn" id="diff-easy"   data-level="easy"   onclick="setDifficulty('easy')">🟢 Easy</button>
+      <button class="diff-btn" id="diff-medium" data-level="medium" onclick="setDifficulty('medium')">🟡 Med</button>
+      <button class="diff-btn" id="diff-hard"   data-level="hard"   onclick="setDifficulty('hard')">🔴 Hard</button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         HOME PAGE
+         ════════════════════════════════════════════════════════════════════ -->
+    <div id="page-home" class="page">
+
+      <!-- Hero -->
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-badge">🎓 Logical Reasoning Tutor</div>
+        <h1 id="hero-heading">
+          Train Your<br>
+          <span class="gradient-text">Pattern Brain</span>
+        </h1>
+        <p>
+          Master logical reasoning through interactive puzzles. Practice number series,
+          shape sequences, and alphabet patterns — with instant, clear explanations.
+        </p>
+        <div class="hero-cta">
+          <button id="cta-start" class="btn btn-primary" onclick="navigate('numbers')">
+            🚀 Start Practising
+          </button>
+          <button id="cta-learn" class="btn btn-outline" onclick="document.querySelector('.categories-grid').scrollIntoView({behavior:'smooth'})">
+            📚 Explore Topics
+          </button>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <div class="container">
+        <div class="stats-bar" role="region" aria-label="Overview statistics">
+          <div class="stat-item">
+            <span class="stat-number">45</span>
+            <span class="stat-label">Total Questions</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">3</span>
+            <span class="stat-label">Pattern Types</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">3</span>
+            <span class="stat-label">Difficulty Levels</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="progress-total-all">0</span>
+            <span class="stat-label">Completed Today</span>
+          </div>
+        </div>
+
+        <!-- Category Cards -->
+        <div class="categories-grid" role="list">
+
+          <div class="category-card numbers" id="card-numbers" role="listitem" tabindex="0"
+               onclick="navigate('numbers')"
+               onkeydown="if(event.key==='Enter') navigate('numbers')">
+            <span class="category-icon">🔢</span>
+            <h2>Number Series</h2>
+            <p>Identify patterns in number sequences and predict the next value. Covers arithmetic, geometric, Fibonacci, primes, and more.</p>
+            <div class="card-footer">
+              <span class="count" id="progress-numbers">0/15</span>
+              <span>→ Explore</span>
+            </div>
+          </div>
+
+          <div class="category-card shapes" id="card-shapes" role="listitem" tabindex="0"
+               onclick="navigate('shapes')"
+               onkeydown="if(event.key==='Enter') navigate('shapes')">
+            <span class="category-icon">🔷</span>
+            <h2>Shape Sequences</h2>
+            <p>Spot the visual pattern — alternating shapes, growing sequences, repeating groups, and more. Think spatially!</p>
+            <div class="card-footer">
+              <span class="count" id="progress-shapes">0/15</span>
+              <span>→ Explore</span>
+            </div>
+          </div>
+
+          <div class="category-card alphabets" id="card-alphabets" role="listitem" tabindex="0"
+               onclick="navigate('alphabets')"
+               onkeydown="if(event.key==='Enter') navigate('alphabets')">
+            <span class="category-icon">🔤</span>
+            <h2>Alphabet Sequences</h2>
+            <p>Decode letter patterns — forward, reverse, skip sequences, and interlaced alphabets. Sharpen your abstract thinking.</p>
+            <div class="card-footer">
+              <span class="count" id="progress-alphabets">0/15</span>
+              <span>→ Explore</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /page-home -->
+
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         NUMBERS PAGE
+         ════════════════════════════════════════════════════════════════════ -->
+    <div id="page-numbers" class="page">
+      <div class="container">
+        <div class="section-header">
+          <button class="back-btn" id="numbers-back" onclick="navigate('home')">← Back to Home</button>
+          <h1>🔢 Number Series</h1>
+          <p>Find the pattern and predict the next number in the sequence.</p>
+          <div class="progress-bar-wrap" role="status" aria-live="polite">
+            <span class="progress-stat">✅ Answered: <span id="numbers-done">0</span> / <span id="numbers-total">15</span></span>
+            <button class="reset-btn" id="numbers-reset" onclick="resetSection()">↺ Reset</button>
+          </div>
+        </div>
+        <div class="questions-grid" id="numbers-grid" role="list" aria-label="Number series questions"></div>
+      </div>
+    </div>
+
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         SHAPES PAGE
+         ════════════════════════════════════════════════════════════════════ -->
+    <div id="page-shapes" class="page">
+      <div class="container">
+        <div class="section-header">
+          <button class="back-btn" id="shapes-back" onclick="navigate('home')">← Back to Home</button>
+          <h1>🔷 Shape Sequences</h1>
+          <p>Study the shape pattern and choose what comes next.</p>
+          <div class="progress-bar-wrap" role="status" aria-live="polite">
+            <span class="progress-stat">✅ Answered: <span id="shapes-done">0</span> / <span id="shapes-total">15</span></span>
+            <button class="reset-btn" id="shapes-reset" onclick="resetSection()">↺ Reset</button>
+          </div>
+        </div>
+        <div class="questions-grid" id="shapes-grid" role="list" aria-label="Shape sequence questions"></div>
+      </div>
+    </div>
+
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         ALPHABETS PAGE
+         ════════════════════════════════════════════════════════════════════ -->
+    <div id="page-alphabets" class="page">
+      <div class="container">
+        <div class="section-header">
+          <button class="back-btn" id="alphabets-back" onclick="navigate('home')">← Back to Home</button>
+          <h1>🔤 Alphabet Sequences</h1>
+          <p>Crack the letter pattern and find the missing letter.</p>
+          <div class="progress-bar-wrap" role="status" aria-live="polite">
+            <span class="progress-stat">✅ Answered: <span id="alphabets-done">0</span> / <span id="alphabets-total">15</span></span>
+            <button class="reset-btn" id="alphabets-reset" onclick="resetSection()">↺ Reset</button>
+          </div>
+        </div>
+        <div class="questions-grid" id="alphabets-grid" role="list" aria-label="Alphabet sequence questions"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>🧠 Pattern Master — Logical Reasoning Tutor &nbsp;|&nbsp; Built for curious minds</p>
+  </footer>
+
+  <!-- Data & Logic -->
+  <script src="data/numbers.js"></script>
+  <script src="data/shapes.js"></script>
+  <script src="data/alphabets.js"></script>
+  <script src="assets/shapes.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

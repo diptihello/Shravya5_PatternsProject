@@ -1,0 +1,14 @@
+I am Logical Reasoning Tutor 
+I need to explain the patterns to students 
+Help me to create an app that will have sections for different patterns
+Site should be colourful and should explain the answers to the questions after clicking the Displaay Answer button
+Sample Questions: Good to have different difficulty levels in the site 
+
+
+2,4,6,8,?
+Guess the next number in the series 
+Guess the next shape in the sequence
+Guess the next alphabet in the sequence 
+
+
+Deploy the site in railway 
