@@ -11,7 +11,7 @@
 | Structure | HTML5 | Semantic, lightweight |
 | Styling | Vanilla CSS | Full control, vibrant design |
 | Logic | Vanilla JavaScript | No dependencies needed |
-| Deployment | Railway (static site) | As specified |
+| Deployment | Vercel (static site) | Zero-config static edge deployment |
 
 ---
 
@@ -31,7 +31,8 @@ d:\Sharvaya Site\
 ├── docs/
 │   ├── problem.md
 │   └── implementation_plan.md
-├── railway.json          # Railway deployment config
+├── vercel.json           # Vercel deployment config
+├── streamlit/            # Streamlit app and requirements
 └── README.md
 ```
 
@@ -134,31 +135,25 @@ Each question follows a standard schema:
 - [ ] Add a "Reset All" button to clear revealed answers
 - [ ] Final cross-browser testing
 
-### Phase 7 — Deployment to Railway
-- [ ] Create `railway.json` with static site config
-- [ ] Push project to a GitHub repository
-- [ ] Connect GitHub repo to Railway
-- [ ] Set root directory and deploy
+### Phase 7 — Deployment to Vercel
+- [x] Create `vercel.json` with static site config
+- [x] Move Streamlit files to `streamlit/` to prevent Python runtime conflicts
+- [x] Push project to GitHub repository (`diptihello/Shravya5_PatternsProject`)
+- [ ] Connect GitHub repo to Vercel
 - [ ] Verify live URL
 
 ---
 
-## Railway Deployment Config
+## Vercel Deployment Config
 
 ```json
 {
-  "$schema": "https://railway.app/railway.schema.json",
-  "build": {
-    "builder": "NIXPACKS"
-  },
-  "deploy": {
-    "startCommand": "npx serve .",
-    "restartPolicyType": "ON_FAILURE"
-  }
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true
 }
 ```
 
-> **Note:** Since this is a pure static site (HTML/CSS/JS), Railway will serve it via `npx serve .` with no build step needed.
+> **Note:** Since this is a pure static site (HTML/CSS/JS), Vercel deploys and serves it directly on the Edge Network with zero build step needed.
 
 ---
 
@@ -172,5 +167,5 @@ Each question follows a standard schema:
 | 4 | Alphabet Sequences fully working | ~1 hr |
 | 5 | Difficulty filter system | ~30 min |
 | 6 | Polish + responsiveness | ~1 hr |
-| 7 | Railway deployment live | ~30 min |
+| 7 | Vercel deployment live | ~30 min |
 | **Total** | | **~6.5 hrs** |

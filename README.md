@@ -22,13 +22,15 @@ Or serve it with:
 npx serve .
 ```
 
-## Deploying to Railway
+## Deploying to Vercel
 
 1. Push this repo to GitHub
-2. Go to [railway.app](https://railway.app) → New Project → Deploy from GitHub repo
-3. Select this repository
-4. Railway auto-detects `railway.json` and deploys
-5. Your site will be live at the provided Railway URL
+2. Go to [vercel.com](https://vercel.com) → **Add New...** → **Project**
+3. Select `diptihello/Shravya5_PatternsProject` from your GitHub repos
+4. Set Project Name to `shravya5-patterns-project` (all lowercase, dashes allowed)
+5. Framework Preset: **Other**
+6. Root Directory: `./`
+7. Click **Deploy** — your site will be live on Vercel with automatic SSL and continuous deployment!
 
 ## Project Structure
 
@@ -42,7 +44,12 @@ npx serve .
 │   └── alphabets.js    # 15 alphabet sequence questions
 ├── assets/
 │   └── shapes.js       # SVG shape renderer
-├── railway.json        # Railway deployment config
+├── vercel.json         # Vercel deployment config
+├── streamlit/          # Optional Python/Streamlit UI
+│   ├── streamlit_app.py
+│   ├── shapes.py
+│   ├── data.py
+│   └── requirements.txt
 └── docs/
     ├── problem.md
     └── implementation_plan.md

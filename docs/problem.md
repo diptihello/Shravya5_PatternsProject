@@ -33,4 +33,4 @@ The site should include sections for the following types of pattern questions:
 
 ## Deployment
 
-- Deploy the site on **Railway**
+- Deploy the site on **Vercel**
