@@ -1,5 +1,4 @@
+streamlit/
 requirements.txt
-data.py
-shapes.py
-streamlit_app.py
+*.py
 __pycache__/
